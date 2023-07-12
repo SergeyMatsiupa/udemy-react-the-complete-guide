@@ -25,7 +25,7 @@ function App() {
   }
   
   const calculateHandler = (userInput) => {
-    // setYearlyData([]);
+    setYearlyData([]);
     // Should be triggered when form is submitted
     // You might not directly want to bind it to the submit event on the form though...
 
