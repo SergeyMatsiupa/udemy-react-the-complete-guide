@@ -14,24 +14,26 @@ const ExpenseItem = (props) => {
     console.log("Clicked!");
     setTitle("Updated!");
   };
-    console.log("props", props);
-    console.log("props.title", props.title);
-    console.log("title", title);
+  console.log("props", props);
+  console.log("props.title", props.title);
+  console.log("title", title);
   return (
     // <h2>Expense item!</h2>
-    <Card className="expense-item">
-      {/* <div>{expenseDate.toISOString()}</div> */}
-      {/* <div>{props.date.toISOString()}</div> */}
-      <ExpenseDate date={props.date} />
-      <div className="expense-item__description">
-        {/* <h2>{expenseTitle}</h2> */}
-        {/* <h2>{props.title}</h2> */}
-        <h2>{title}</h2>
-        <div className="expense-item__price">${props.amount}</div>
-      </div>
-      {/* <button onClick={() => {console.log("clicked")}}>Change Title</button> */}
-      <button onClick={clickHandler}>Change Title</button>
-    </Card>
+    <li>
+      <Card className="expense-item">
+        {/* <div>{expenseDate.toISOString()}</div> */}
+        {/* <div>{props.date.toISOString()}</div> */}
+        <ExpenseDate date={props.date} />
+        <div className="expense-item__description">
+          {/* <h2>{expenseTitle}</h2> */}
+          {/* <h2>{props.title}</h2> */}
+          <h2>{title}</h2>
+          <div className="expense-item__price">${props.amount}</div>
+        </div>
+        {/* <button onClick={() => {console.log("clicked")}}>Change Title</button> */}
+        <button onClick={clickHandler}>Change Title</button>
+      </Card>
+    </li>
   );
 };
 
