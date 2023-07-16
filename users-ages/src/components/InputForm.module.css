@@ -1,0 +1,10 @@
+.form label {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-weight: bold;
+}
+
+.form input {
+    width: 100%;
+    margin-bottom: 0.4rem;
+}

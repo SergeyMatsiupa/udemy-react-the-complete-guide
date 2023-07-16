@@ -1,8 +1,10 @@
 import TableRow from "./TableRow";
 
+import classes from "./ResultTable.module.css";
+
 const Table = (props) => {
   return (
-    <table className="result">
+    <table className={classes.result}>
       <thead>
         <tr>
           <th>Year</th>
@@ -14,7 +16,7 @@ const Table = (props) => {
       </thead>
       <tbody>
         {props.dataTable.map((dataRow) => {
-          return <TableRow dataRow={dataRow} />;
+          return <TableRow dataRow={dataRow} key={dataRow.year}/>;
         })}
       </tbody>
     </table>
