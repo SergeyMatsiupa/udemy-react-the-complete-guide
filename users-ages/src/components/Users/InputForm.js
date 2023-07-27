@@ -1,8 +1,9 @@
 
-import Button from "./Button";
+import Button from "../UI/Button";
 
-import classes from "./FormContainer.module.css";
+import classes from "../UI/FormContainer.module.css";
 import classes1 from "./InputForm.module.css";
+
 
 const InputForm = (props) => {
   const inputHandler = (event) => {

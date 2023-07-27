@@ -11,8 +11,8 @@
 
 .modal-content {
   margin: 30% auto;
-  /* 15% from the top and centered */
   padding: 0;
+  overflow: hidden;
 }
 
 .window-caption {
@@ -25,3 +25,9 @@
 .modal-content-int {
     padding: 1em;
   }
+
+.button-container {
+    display:flex; 
+    justify-content:flex-end;
+    padding-top: 2rem;
+}

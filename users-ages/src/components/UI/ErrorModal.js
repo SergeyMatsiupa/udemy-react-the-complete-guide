@@ -16,7 +16,9 @@ const ErrorModal = (props) => {
         <div className={classesModal["window-caption"]}>Invalid Input</div>
         <div className={classesModal["modal-content-int"]}>
           <p>{props.errorMsg}</p>
-          <Button type={"submit"} caption={"Okay"} onClick={okayHandler} />
+          <div className={classesModal["button-container"]}>
+            <Button type={"submit"} caption={"Okay"} onClick={okayHandler} />
+          </div>
         </div>
       </div>
     </div>

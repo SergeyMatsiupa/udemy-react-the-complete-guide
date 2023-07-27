@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { v4 as uuidv4 } from 'uuid';
 
-import InputForm from "./components/InputForm";
-import UsersList from "./components/UsersList";
-import ErrorModal from "./components/ErrorModal";
+import InputForm from "./components/Users/InputForm";
+import UsersList from "./components/Users/UsersList";
+import ErrorModal from "./components/UI/ErrorModal";
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -18,7 +18,7 @@ function App() {
       setErrorMsg("Please enter a non-empty Username.");
       return;
     }
-    if(!(userInput.age > 0)) {
+    if(!(Number(userInput.age) > 0)) {
       setErrorMsg("Please enter a valid age (>0).");
       return;
     }
