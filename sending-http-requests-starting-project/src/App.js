@@ -52,7 +52,7 @@ function App() {
       console.log("error", error);
     }
     setIsLoading(false);
-  });
+  },[]);
 
   useEffect(() => {
     fetchMoviesHandler();
