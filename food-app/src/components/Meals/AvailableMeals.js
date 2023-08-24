@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+
 import Card from "../UI/Card";
 import MealItem from "./MealItem/MealItem";
 
@@ -31,7 +33,62 @@ const DUMMY_MEALS = [
 ];
 
 const AvailableMeals = () => {
-  const mealsList = DUMMY_MEALS.map((meal) => (
+  const [meals, setMeals] = useState([]);
+  const [httpError, setHttpError] = useState();
+  const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    setHttpError("");
+    const fetchMealsFB = async () => {
+      const response = await fetch(
+        "https://react-http-3d40f-default-rtdb.firebaseio.com/meals.json"
+      );
+      console.log('response', response);
+      console.log('response.status', response.status);
+      if (response.status !== 200) {
+        throw new Error("Something went wrong");
+      }
+      const responseData = await response.json();
+      console.log("responseData", responseData);
+      const mealsArr = [];
+      for (const key in responseData) {
+        mealsArr.push({
+          id: key,
+          name: responseData[key].name,
+          description: responseData[key].description,
+          price: responseData[key].price,
+        });
+      }
+      console.log("mealsArr", mealsArr);
+      setMeals(mealsArr);
+      setIsLoading(false);
+    };
+
+    fetchMealsFB().catch((error) => {
+      setHttpError(error.message);
+      setIsLoading(false);
+    });
+  }, []);
+
+  // console.log('JSON.stringify(DUMMY_MEALS)', JSON.stringify(DUMMY_MEALS));
+
+  if (isLoading) {
+    return (
+      <section className={classes["meals-loading"]}>
+        <p>Loading...</p>
+      </section>
+    );
+  }
+
+  if (httpError) {
+    return (
+      <section className={classes["meals-error"]}>
+        <p>{httpError}</p>
+      </section>
+    );
+  }
+
+  // const mealsList = DUMMY_MEALS.map((meal) => (
+  const mealsList = meals.map((meal) => (
     <MealItem
       id={meal.id}
       key={meal.id}
